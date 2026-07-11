@@ -1,22 +1,23 @@
-const API_KEY = import.meta.env.VITE_GNEWS_API_KEY;
-
 export async function searchNews(searchTerm) {
   const response = await fetch(
-    `https://gnews.io/api/v4/search?q=${searchTerm}&lang=en&apikey=${API_KEY}`
+    `/api/news?search=${encodeURIComponent(searchTerm)}`
   );
 
-  const data = await response.json();
+  if (!response.ok) {
+    throw new Error("Failed to fetch news");
+  }
 
-  return data;
+  return await response.json();
 }
 
 export async function getTopHeadlines(category) {
-  
   const response = await fetch(
-    `https://gnews.io/api/v4/top-headlines?category=${category}&lang=en&apikey=${API_KEY}`
+    `/api/news?category=${category}`
   );
 
-  const data = await response.json();
+  if (!response.ok) {
+    throw new Error("Failed to fetch news");
+  }
 
-  return data;
+  return await response.json();
 }
