@@ -6,7 +6,7 @@ A modern, responsive news application built with React that allows users to brow
 
 ## 🚀 Live Demo
 
-Coming Soon
+https://react-news-app-two-rose.vercel.app
 
 ---
 
